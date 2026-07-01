@@ -7,18 +7,14 @@ export function CTA() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const formspreeUrl = process.env.NEXT_PUBLIC_FORMSPREE_URL;
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
-    if (!formspreeUrl) {
-      return;
-    }
 
     setLoading(true);
     try {
-      const response = await fetch(formspreeUrl, {
+      const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
