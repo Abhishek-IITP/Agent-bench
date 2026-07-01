@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ─────────────────────────────────────────── */
+:root {
+  /* Backgrounds — deep blue-black, not pure black */
+  --bg-void:        #0a0a0f;
+  --bg-deep:        #0f0f1a;
+  --bg-elevated:    #15151f;
+  --bg-card:        rgba(255,255,255,0.03);
+
+  /* Borders — very subtle */
+  --border-subtle:  rgba(255,255,255,0.07);
+  --border-mid:     rgba(255,255,255,0.12);
+  --border-glow:    rgba(255,255,255,0.18);
+
+  /* Text — warm off-white like Anthropic/Linear */
+  --text-primary:   #efefef;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-muted:     rgba(255,255,255,0.3);
+
+  /* Signal green */
+  --signal:         #4ade80;
+  --signal-dim:     rgba(74,222,128,0.12);
+  --signal-glow:    rgba(74,222,128,0.25);
+
+  /* Status */
+  --status-healthy:   #4ade80;
+  --status-flaky:     #fbbf24;
+  --status-broken:    #f87171;
+  --status-saturated: #60a5fa;
+  --status-trivial:   #a78bfa;
+}
+
+/* ─── Base ────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #efefef;
+  font-family: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Custom components ─────────────────────────────────────────────── */
+@layer components {
+  .font-display {
+    font-family: var(--font-instrument-serif, Georgia, serif);
+    font-style: normal;
+  }
+
+  .font-mono-custom {
+    font-family: var(--font-geist-mono, ui-monospace, monospace);
+  }
+
+  .text-display-xl {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .text-display-l {
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-hero {
+    font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
+
+  .text-label-mono {
+    font-family: var(--font-geist-mono, monospace);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .glass-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .glass-card:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    font-family: var(--font-geist-mono, monospace);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .pill-healthy   { background: rgba(74,222,128,0.1);  color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+  .pill-flaky     { background: rgba(251,191,36,0.1);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+  .pill-broken    { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
+  .pill-saturated { background: rgba(96,165,250,0.1);  color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
+  .pill-trivial   { background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.2); }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #050508; }
+::-webkit-scrollbar-thumb { background: #252840; border-radius: 3px; }
+::selection { background: rgba(74,222,128,0.15); color: #f0f2f8; }
+:focus-visible { outline: 2px solid #4ade80; outline-offset: 3px; border-radius: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
