@@ -122,25 +122,6 @@ The core metadata model includes fields such as:
 - `docker_image`
 - `expected_output_files`
 
-## Documentation
-
-If you want the project story in order, start here:
-
-1. [learning/START-HERE.md](learning/START-HERE.md)
-2. [learning/PROJECT-STATUS.md](learning/PROJECT-STATUS.md)
-3. [learning/LEARNING-GUIDE.md](learning/LEARNING-GUIDE.md)
-4. [learning/QUICK-REFERENCE.md](learning/QUICK-REFERENCE.md)
-5. [IMPLEMENTATION-PLAN.md](IMPLEMENTATION-PLAN.md)
-
-Other useful docs:
-
-- [learning/DAY1-SUMMARY.md](learning/DAY1-SUMMARY.md)
-- [learning/DAY2-PREP.md](learning/DAY2-PREP.md)
-- [learning/TERMINAL-COMMANDS-EXPLAINED.md](learning/TERMINAL-COMMANDS-EXPLAINED.md)
-- [docs~/architecture.md](docs~/architecture.md)
-- [docs~/roadmap.md](docs~/roadmap.md)
-- [tasks/find-database-files/README.md](tasks/find-database-files/README.md)
-
 ## Status Snapshot
 
 The current foundation focuses on the first layer of the system:
