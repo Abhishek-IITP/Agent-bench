@@ -1,0 +1,15 @@
+{
+  "application": "MyApp",
+  "version": "1.0.0",
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "database_name": "myapp_db",
+    "username": "admin",
+    "password": "***"
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 3600
+  }
+}

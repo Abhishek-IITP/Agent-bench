@@ -1,0 +1,7 @@
+[2024-01-15 10:30:45] INFO: Application started
+[2024-01-15 10:31:02] INFO: Connecting to database
+[2024-01-15 10:31:05] ERROR: database connection failed
+[2024-01-15 10:31:06] INFO: Retrying connection to database
+[2024-01-15 10:31:10] INFO: Successfully connected to database
+[2024-01-15 10:31:15] INFO: Loading data from database
+[2024-01-15 10:31:20] INFO: Application ready
