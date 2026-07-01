@@ -7,20 +7,27 @@ export function CTA() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const formspreeUrl = process.env.NEXT_PUBLIC_FORMSPREE_URL;
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email) return;
+    if (!formspreeUrl) {
+      return;
+    }
+
     setLoading(true);
     try {
-      await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch(formspreeUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      setSubmitted(true);
+      if (response.ok) {
+        setSubmitted(true);
+      }
     } catch {
-      setSubmitted(true);
+      // Keep the form visible if submission fails.
     } finally {
       setLoading(false);
     }
@@ -30,8 +37,7 @@ export function CTA() {
     <section id="waitlist" className="py-14 bg-bg-void relative overflow-hidden">
       {/* Glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full pointer-events-none opacity-30"
-        style={{ background: "radial-gradient(circle, rgba(74,222,128,0.2), transparent 70%)", filter: "blur(60px)" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full pointer-events-none opacity-30 bg-[radial-gradient(circle,rgba(74,222,128,0.2),transparent_70%)] blur-[60px]"
       />
 
       <div className="max-w-2xl mx-auto px-6 text-center relative z-10">
