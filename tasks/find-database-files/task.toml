@@ -1,4 +1,9 @@
-name = "find-database-files"
+id = "find-database-files"
+name = "Find Database Files"
+version = "1.0.0"
 category = "filesystem"
 difficulty = "easy"
 timeout = 60
+description = "Search for files containing the word 'database' and output their names sorted alphabetically"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["output.txt"]
