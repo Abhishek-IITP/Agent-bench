@@ -1,0 +1,2 @@
+This is file 2 with much more content than file 1. It is bigger!
+This file should be the largest.

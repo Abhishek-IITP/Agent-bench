@@ -1,0 +1,9 @@
+id = "filter-logs-by-date"
+name = "Filter Logs by Date"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "medium"
+timeout = 60
+description = "Extract log entries within a specific date range"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["filtered.log"]

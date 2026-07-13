@@ -1,0 +1,9 @@
+id = "find-largest-file"
+name = "Find Largest File"
+version = "1.0.0"
+category = "filesystem"
+difficulty = "easy"
+timeout = 60
+description = "Find the largest file in a directory tree and output its path and size"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["largest.txt"]
