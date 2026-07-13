@@ -1,0 +1,27 @@
+[
+  {
+    "id": 4,
+    "name": "Alice",
+    "role": "Moderator"
+  },
+  {
+    "id": 3,
+    "name": "Bob",
+    "role": "User"
+  },
+  {
+    "id": 2,
+    "name": "Charlie",
+    "role": "User"
+  },
+  {
+    "id": 1,
+    "name": "Diana",
+    "role": "Admin"
+  },
+  {
+    "id": 5,
+    "name": "Zack",
+    "role": "Admin"
+  }
+]

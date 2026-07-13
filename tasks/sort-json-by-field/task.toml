@@ -1,0 +1,9 @@
+id = "sort-json-by-field"
+name = "Sort JSON by Field"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "easy"
+timeout = 60
+description = "Sort a JSON array by a specific field in ascending order"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["sorted.json"]

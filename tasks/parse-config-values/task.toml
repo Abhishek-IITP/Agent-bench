@@ -1,0 +1,9 @@
+id = "parse-config-values"
+name = "Parse Config Values"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "medium"
+timeout = 60
+description = "Extract specific configuration values from a config file"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["output.txt"]
