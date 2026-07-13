@@ -1,0 +1,9 @@
+id = "extract-emails"
+name = "Extract Emails"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "easy"
+timeout = 60
+description = "Extract unique email addresses from text files and output them sorted"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["emails.txt"]

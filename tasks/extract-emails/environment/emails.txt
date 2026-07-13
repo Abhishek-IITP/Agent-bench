@@ -1,0 +1,12 @@
+contacts.txt:alice@company.org
+contacts.txt:bob.smith@example.com
+contacts.txt:charlie@domain.co.uk
+contacts.txt:emergency@example.com
+contacts.txt:sales@company.org
+contacts.txt:support@example.com
+contacts.txt:tech@example.com
+support.txt:billing@company.org
+support.txt:db-support@technical.io
+support.txt:manager@company.org
+support.txt:support@example.com
+support.txt:web@example.com

@@ -1,0 +1,14 @@
+Support Team Contacts:
+
+Main support: support@example.com
+Sales: sales@company.org
+Technical help: tech@example.com
+
+Customer emails:
+alice@company.org
+bob.smith@example.com
+charlie@domain.co.uk
+
+For urgent issues:
+emergency@example.com
+support@example.com

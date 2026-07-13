@@ -1,0 +1,10 @@
+id = "transform-data-format"
+name = "Transform Data Format (JSON to CSV)"
+category = "data-processing"
+difficulty = "medium"
+version = "1.0.0"
+timeout = 120
+description = "Convert JSON array data to CSV format with proper escaping and headers."
+docker_image = "ubuntu:22.04"
+expected_output_files = ["output.csv"]
+

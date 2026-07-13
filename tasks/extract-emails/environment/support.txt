@@ -1,0 +1,8 @@
+Support Information:
+
+Primary contact: support@example.com
+Escalation: manager@company.org
+Database team: db-support@technical.io
+
+For website issues: web@example.com
+For billing: billing@company.org

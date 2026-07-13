@@ -1,0 +1,11 @@
+[2024-01-15 10:23:45] INFO: Application started
+[2024-01-15 10:23:46] INFO: Initializing database connection
+[2024-01-15 10:23:47] DEBUG: Loading configuration
+[2024-01-15 10:23:48] INFO: Configuration loaded successfully
+[2024-01-15 10:23:49] ERROR: Connection failed - timeout after 30s
+[2024-01-15 10:23:50] INFO: Retrying connection...
+[2024-01-15 10:23:55] ERROR: Authentication failed - invalid credentials
+[2024-01-15 10:23:56] DEBUG: Cleanup initiated
+[2024-01-15 10:23:57] DEBUG: Closing resources
+[2024-01-15 10:23:58] ERROR: Database unreachable - connection refused
+[2024-01-15 10:23:59] INFO: Application shutdown

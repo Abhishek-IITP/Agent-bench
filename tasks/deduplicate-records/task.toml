@@ -1,0 +1,9 @@
+id = "deduplicate-records"
+name = "Deduplicate Records"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "easy"
+timeout = 60
+description = "Remove duplicate entries from a dataset"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["unique.txt"]

@@ -1,0 +1,9 @@
+id = "count-error-lines"
+name = "Count Error Lines"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "easy"
+timeout = 60
+description = "Count the number of lines containing 'ERROR' in a log file and output the count"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["count.txt"]

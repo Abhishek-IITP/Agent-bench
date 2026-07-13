@@ -1,0 +1,10 @@
+id = "calculate-statistics"
+name = "Calculate Statistics from CSV Data"
+category = "data-processing"
+difficulty = "medium"
+version = "1.0.0"
+timeout = 120
+description = "Parse a CSV file containing numeric data and calculate statistics (mean, median, std dev, min, max). Save results to a JSON file."
+docker_image = "ubuntu:22.04"
+expected_output_files = ["stats.json"]
+
