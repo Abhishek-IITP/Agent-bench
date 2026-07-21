@@ -1,0 +1,10 @@
+id = "optimize-query"
+name = "Optimize Database Query"
+category = "data-processing"
+difficulty = "hard"
+version = "1.0.0"
+timeout = 120
+description = "Analyze and optimize an inefficient SQL query for performance. Replace with optimized version that produces same results."
+docker_image = "ubuntu:22.04"
+expected_output_files = ["optimized_query.sql"]
+

@@ -1,0 +1,9 @@
+id = "merge-csv-files"
+name = "Merge CSV Files"
+version = "1.0.0"
+category = "data-processing"
+difficulty = "easy"
+timeout = 60
+description = "Merge multiple CSV files into a single CSV with unique headers"
+docker_image = "ubuntu:22.04"
+expected_output_files = ["merged.csv"]
