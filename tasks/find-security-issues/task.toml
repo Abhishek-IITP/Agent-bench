@@ -1,0 +1,10 @@
+id = "find-security-issues"
+name = "Find Security Issues in Code"
+category = "security"
+difficulty = "hard"
+version = "1.0.0"
+timeout = 120
+description = "Analyze provided code and generate a report of security vulnerabilities found, including OWASP-related issues."
+docker_image = "ubuntu:22.04"
+expected_output_files = ["security_report.txt"]
+

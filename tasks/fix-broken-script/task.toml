@@ -1,0 +1,10 @@
+id = "fix-broken-script"
+name = "Fix Broken Python Script"
+category = "debugging"
+difficulty = "hard"
+version = "1.0.0"
+timeout = 120
+description = "Fix a broken Python script with syntax errors, logic bugs, and runtime issues to make it produce correct output."
+docker_image = "ubuntu:22.04"
+expected_output_files = ["result.txt"]
+
