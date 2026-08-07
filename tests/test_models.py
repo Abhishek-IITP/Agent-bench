@@ -2,7 +2,6 @@
 Tests for data models.
 """
 
-from datetime import datetime
 
 import pytest
 
@@ -18,7 +17,7 @@ from runner.models import (
 
 class TestTaskConfig:
     """Test TaskConfig model."""
-    
+
     def test_create_valid_task_config(self):
         """Test creating a valid TaskConfig."""
         config = TaskConfig(
@@ -27,13 +26,13 @@ class TestTaskConfig:
             category=TaskCategory.FILESYSTEM,
             difficulty=DifficultyLevel.EASY,
         )
-        
+
         assert config.id == "test-task"
         assert config.name == "Test Task"
         assert config.category == TaskCategory.FILESYSTEM
         assert config.difficulty == DifficultyLevel.EASY
         assert config.timeout == 300  # default
-    
+
     def test_task_id_normalized_to_lowercase(self):
         """Test that task IDs are normalized to lowercase."""
         config = TaskConfig(
@@ -41,9 +40,9 @@ class TestTaskConfig:
             name="Test",
             category=TaskCategory.FILESYSTEM,
         )
-        
+
         assert config.id == "test-task"
-    
+
     def test_invalid_task_id_raises_error(self):
         """Test that invalid task IDs raise validation error."""
         with pytest.raises(ValueError):
@@ -52,7 +51,7 @@ class TestTaskConfig:
                 name="Test",
                 category=TaskCategory.FILESYSTEM,
             )
-    
+
     def test_invalid_timeout_raises_error(self):
         """Test that non-positive timeout raises error."""
         with pytest.raises(ValueError):
@@ -62,7 +61,7 @@ class TestTaskConfig:
                 category=TaskCategory.FILESYSTEM,
                 timeout=-1,
             )
-    
+
     def test_task_config_with_custom_values(self):
         """Test TaskConfig with custom values."""
         config = TaskConfig(
@@ -74,7 +73,7 @@ class TestTaskConfig:
             description="A difficult debugging task",
             expected_output_files=["output.txt", "log.json"],
         )
-        
+
         assert config.difficulty == DifficultyLevel.HARD
         assert config.timeout == 600
         assert len(config.expected_output_files) == 2
@@ -82,7 +81,7 @@ class TestTaskConfig:
 
 class TestExecutionResult:
     """Test ExecutionResult model."""
-    
+
     def test_create_successful_execution(self):
         """Test creating a successful execution result."""
         result = ExecutionResult(
@@ -92,12 +91,12 @@ class TestExecutionResult:
             stdout="Success",
             duration=1.23,
         )
-        
+
         assert result.task_id == "test-task"
         assert result.success is True
         assert result.exit_code == 0
         assert result.duration == 1.23
-    
+
     def test_create_failed_execution(self):
         """Test creating a failed execution result."""
         result = ExecutionResult(
@@ -107,7 +106,7 @@ class TestExecutionResult:
             stderr="Error occurred",
             error_message="Task timed out",
         )
-        
+
         assert result.success is False
         assert result.exit_code == 1
         assert result.error_message == "Task timed out"
@@ -115,7 +114,7 @@ class TestExecutionResult:
 
 class TestEvaluationResult:
     """Test EvaluationResult model."""
-    
+
     def test_create_passed_evaluation(self):
         """Test creating a passed evaluation."""
         result = EvaluationResult(
@@ -124,7 +123,7 @@ class TestEvaluationResult:
             score=1.0,
             test_output="All tests passed",
         )
-        
+
         assert result.task_id == "test-task"
         assert result.passed is True
         assert result.score == 1.0
@@ -132,7 +131,7 @@ class TestEvaluationResult:
 
 class TestMultiRunResult:
     """Test MultiRunResult model and reliability score."""
-    
+
     def test_create_multi_run_result(self):
         """Test creating a multi-run result."""
         result = MultiRunResult(
@@ -147,11 +146,11 @@ class TestMultiRunResult:
             min_duration=4.2,
             max_duration=5.8,
         )
-        
+
         assert result.task_id == "test-task"
         assert result.success_rate == 0.8
         assert result.passes == 8
-    
+
     def test_reliability_score_all_passes(self):
         """Test reliability score for all passing runs."""
         result = MultiRunResult(
@@ -166,10 +165,10 @@ class TestMultiRunResult:
             min_duration=4.9,
             max_duration=5.1,
         )
-        
+
         score = result.reliability_score
         assert score == pytest.approx(1.0, abs=0.01)
-    
+
     def test_reliability_score_high_variance_penalty(self):
         """Test that high variance reduces reliability score."""
         result = MultiRunResult(
@@ -184,11 +183,11 @@ class TestMultiRunResult:
             min_duration=2.0,
             max_duration=18.0,
         )
-        
+
         score = result.reliability_score
         # Should be less than 0.9 due to high variance penalty
         assert score < 0.9
-    
+
     def test_reliability_score_empty_runs(self):
         """Test reliability score with no runs."""
         result = MultiRunResult(
@@ -203,5 +202,5 @@ class TestMultiRunResult:
             min_duration=0.0,
             max_duration=0.0,
         )
-        
+
         assert result.reliability_score == 0.0
