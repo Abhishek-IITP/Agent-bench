@@ -11,21 +11,21 @@ import sys
 
 def test_output_file_exists():
     """Test that output.txt was created."""
-    output_path = "/workspace/output.txt"
-    assert os.path.exists(output_path), f"output.txt not found at {output_path}"
-    print("✓ output.txt exists")
+    output_path = "output.txt"
+    assert os.path.exists(output_path), f"output.txt not found"
+    print("OK: output.txt exists")
 
 
 def test_output_file_not_empty():
     """Test that output.txt has content."""
-    output_path = "/workspace/output.txt"
+    output_path = "output.txt"
     assert os.path.getsize(output_path) > 0, "output.txt is empty"
-    print("✓ output.txt is not empty")
+    print("OK: output.txt is not empty")
 
 
 def test_output_format():
     """Test that output.txt has correct format (one filename per line)."""
-    output_path = "/workspace/output.txt"
+    output_path = "output.txt"
     
     with open(output_path, 'r') as f:
         lines = f.readlines()
@@ -39,13 +39,13 @@ def test_output_format():
             f"Path found in output: {line}"
         assert line, "Empty line found in output"
     
-    print(f"✓ Format correct: {len(lines)} filenames")
+    print(f"OK: Format correct ({len(lines)} filenames)")
     return lines
 
 
 def test_files_are_sorted():
     """Test that filenames are sorted alphabetically."""
-    output_path = "/workspace/output.txt"
+    output_path = "output.txt"
     
     with open(output_path, 'r') as f:
         lines = [line.strip() for line in f.readlines() if line.strip()]
@@ -54,12 +54,12 @@ def test_files_are_sorted():
     assert lines == sorted_lines, \
         f"Files not sorted. Expected: {sorted_lines}, Got: {lines}"
     
-    print("✓ Files are sorted alphabetically")
+    print("OK: Files are sorted alphabetically")
 
 
 def test_correct_files_found():
     """Test that the correct files were found."""
-    output_path = "/workspace/output.txt"
+    output_path = "output.txt"
     
     with open(output_path, 'r') as f:
         found_files = set(line.strip() for line in f.readlines() if line.strip())
@@ -89,7 +89,7 @@ def test_correct_files_found():
     assert len(found_files) == 3, \
         f"Expected 3 files, found {len(found_files)}"
     
-    print(f"✓ Correct files found: {sorted(found_files)}")
+    print(f"OK: Correct files found: {sorted(found_files)}")
 
 
 def main():
@@ -107,20 +107,15 @@ def main():
         try:
             test()
         except AssertionError as e:
-            print(f"✗ {test.__name__} FAILED: {e}")
+            print(f"FAIL: {test.__name__}: {e}")
             failed += 1
         except Exception as e:
-            print(f"✗ {test.__name__} ERROR: {e}")
+            print(f"ERROR: {test.__name__}: {e}")
             failed += 1
-    
-    print(f"\n{'='*50}")
-    print(f"Tests passed: {len(tests) - failed}/{len(tests)}")
     
     if failed > 0:
         sys.exit(1)
-    else:
-        print("All tests passed!")
-        sys.exit(0)
+    sys.exit(0)
 
 
 if __name__ == "__main__":
