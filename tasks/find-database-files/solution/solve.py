@@ -10,14 +10,12 @@ import glob
 
 
 def solve():
-    """
-     ).
-    """
+    """Find files in the current environment containing 'database' and output names."""
     
-    # Directory to search
-    data_dir = "/workspace/data"
+    # Use current directory
+    data_dir = "."
     
-    # Find all files in the directory
+    # Find all files in the directory (non-recursive, current directory only)
     all_files = glob.glob(os.path.join(data_dir, "*"))
     
     # Filter for files only (not directories)
@@ -35,22 +33,16 @@ def solve():
                     matching_files.append(filename)
         except Exception as e:
             # Skip files that can't be read
-            print(f"Warning: Could not read {filepath}: {e}")
-            continue
+            pass
     
     # Sort alphabetically
     matching_files.sort()
     
-    # Write to output file
-    output_path = "/workspace/output.txt"
+    # Write to output file (relative path in current directory)
+    output_path = "output.txt"
     with open(output_path, 'w') as f:
         for filename in matching_files:
             f.write(filename + "\n")
-    
-    print(f"Found {len(matching_files)} files containing 'database'")
-    print(f"Results written to {output_path}")
-    
-    return matching_files
 
 
 if __name__ == "__main__":
