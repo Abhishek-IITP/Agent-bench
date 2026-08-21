@@ -1,0 +1,380 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   AGENTBENCH — INTELLIGENCE CENTER
+   True Black Design System
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --spacing: 0.25rem;
+  /* True black palette */
+  --black:     #000000;
+  --black-1:   #0a0a0a;
+  --black-2:   #111111;
+  --black-3:   #1a1a1a;
+  --black-4:   #222222;
+  --black-5:   #2a2a2a;
+
+  /* Graphite scale */
+  --graphite-1: #333333;
+  --graphite-2: #444444;
+  --graphite-3: #555555;
+  --graphite-4: #666666;
+  --graphite-5: #888888;
+
+  /* Warm white */
+  --white:      #ffffff;
+  --white-1:    #f5f5f5;
+  --white-2:    #e8e8e8;
+  --white-3:    #d0d0d0;
+  --white-4:    #aaaaaa;
+
+  /* Accent: Emerald (healthy) */
+  --emerald:    #10b981;
+  --emerald-dim: #065f46;
+  --emerald-glow: rgba(16, 185, 129, 0.15);
+
+  /* Accent: Amber (warning) */
+  --amber:      #f59e0b;
+  --amber-dim:  #78350f;
+  --amber-glow: rgba(245, 158, 11, 0.15);
+
+  /* Accent: Red (critical) */
+  --red:        #ef4444;
+  --red-dim:    #7f1d1d;
+  --red-glow:   rgba(239, 68, 68, 0.15);
+
+  /* Typography scale */
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-mono:    var(--font-geist-mono);
+}
+
+@theme {
+  --color-background: var(--black);
+  --color-foreground: var(--white);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --spacing: 0.25rem;
+}
+
+/* ── Base Reset ───────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-sans), sans-serif;
+  height: 100%;
+  line-height: 1.6;
+}
+
+/* ── Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--graphite-2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--graphite-3); }
+
+/* ── Selection ────────────────────────────────── */
+::selection { background: rgba(16, 185, 129, 0.3); color: var(--white); }
+
+/* ═══════════════════════════════════════════════
+   LAYOUT PRIMITIVES
+   ═══════════════════════════════════════════════ */
+
+/* Thin separator line */
+.separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--graphite-1), transparent);
+}
+
+/* Vertical rule */
+.rule {
+  width: 1px;
+  background: var(--black-5);
+}
+
+/* ── Border styles ────────────────────────────── */
+.border-subtle  { border: 1px solid var(--black-5); }
+.border-dim     { border: 1px solid var(--graphite-1); }
+.border-visible { border: 1px solid var(--graphite-2); }
+
+/* ── Surface styles ───────────────────────────── */
+.surface        { background: var(--black-2); }
+.surface-raised { background: var(--black-3); }
+.surface-float  { background: var(--black-4); }
+
+/* ── Backdrop blur panel ──────────────────────── */
+.panel {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--black-5);
+}
+
+/* ── Status dot ───────────────────────────────── */
+.dot-healthy  { background: var(--emerald); box-shadow: 0 0 8px var(--emerald-glow); }
+.dot-warning  { background: var(--amber);   box-shadow: 0 0 8px var(--amber-glow); }
+.dot-critical { background: var(--red);     box-shadow: 0 0 8px var(--red-glow); }
+
+/* ═══════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════ */
+
+/* Giant metric number */
+.metric-giant {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-large {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-medium {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Label above a metric */
+.metric-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-4);
+}
+
+/* Chapter heading */
+.chapter-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Section sub-label */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--graphite-5);
+}
+
+/* Mono code text */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+/* ═══════════════════════════════════════════════
+   STATUS COLORS
+   ═══════════════════════════════════════════════ */
+
+.text-healthy  { color: var(--emerald); }
+.text-warning  { color: var(--amber); }
+.text-critical { color: var(--red); }
+.text-dim      { color: var(--white-4); }
+.text-muted    { color: var(--graphite-5); }
+
+.bg-healthy    { background: var(--emerald-glow); }
+.bg-warning    { background: var(--amber-glow); }
+.bg-critical   { background: var(--red-glow); }
+
+/* Health badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-healthy  { background: var(--emerald-glow);  color: var(--emerald); border: 1px solid rgba(16,185,129,0.3); }
+.badge-warning  { background: var(--amber-glow);    color: var(--amber);   border: 1px solid rgba(245,158,11,0.3); }
+.badge-critical { background: var(--red-glow);      color: var(--red);     border: 1px solid rgba(239,68,68,0.3); }
+.badge-neutral  { background: rgba(255,255,255,0.05); color: var(--white-4); border: 1px solid var(--black-5); }
+.badge-purple   { background: rgba(139,92,246,0.1);  color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+
+/* ═══════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════ */
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(0.85); }
+}
+
+@keyframes scan-line {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes counter-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bar-grow {
+  from { width: 0; }
+  to   { width: var(--bar-width, 0%); }
+}
+
+.animate-pulse-dot   { animation: pulse-dot 2s ease-in-out infinite; }
+.animate-fade-in     { animation: fade-in 0.4s ease-out forwards; }
+.animate-slide-up    { animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-slide-right { animation: slide-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-counter     { animation: counter-up 0.4s ease-out forwards; }
+
+/* Stagger children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
+.stagger > *:nth-child(6) { animation-delay: 300ms; }
+
+/* ═══════════════════════════════════════════════
+   INTERACTIVE
+   ═══════════════════════════════════════════════ */
+
+.interactive {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.interactive:hover { background: var(--black-3); }
+.interactive:active { background: var(--black-4); transform: scale(0.99); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all 0.15s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--white-2); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--white-4);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid var(--black-5);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn-ghost:hover { border-color: var(--graphite-2); color: var(--white); background: var(--black-3); }
+
+/* ═══════════════════════════════════════════════
+   BENCHMARK PULSE CHART
+   ═══════════════════════════════════════════════ */
+
+.pulse-bar {
+  width: 2px;
+  border-radius: 1px;
+  background: var(--emerald);
+  transform-origin: bottom;
+  transition: height 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════════
+   PROGRESS BARS
+   ═══════════════════════════════════════════════ */
+
+.progress-track {
+  height: 2px;
+  background: var(--black-5);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 1px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════════
+   TIMELINE
+   ═══════════════════════════════════════════════ */
+
+.timeline-line {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--graphite-1), var(--graphite-1), transparent);
+}
+
+.timeline-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   LEGACY COMPAT (used in existing components)
+   ═══════════════════════════════════════════════ */
+.glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--black-5);
+  border-radius: 10px;
+}
+
+.animate-fade-in-up  { animation: slide-up 0.5s ease-out; }
+.animate-slide-in-right { animation: slide-right 0.4s ease-out; }
+.animate-slide-in-left  { animation: slide-right 0.4s ease-out; }

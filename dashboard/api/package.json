@@ -1,0 +1,26 @@
+{
+  "name": "agentbench-api",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx tsx watch src/index.ts",
+    "dev:bun": "bun run --watch src/index.ts",
+    "build": "tsc",
+    "start": "npx tsx src/index.ts",
+    "test": "npx tsx src/index.ts",
+    "format": "prettier --write 'src/**/*.ts'"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.2",
+    "@elysiajs/node": "^1.4.5",
+    "drizzle-orm": "^0.29.0",
+    "elysia": "^1.0.0",
+    "postgres": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.0.0"
+  }
+}
