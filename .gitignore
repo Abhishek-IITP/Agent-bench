@@ -1,0 +1,57 @@
+# Dependencies & Package Managers
+node_modules/
+**/node_modules/
+.pnp
+.pnp.*
+
+# Python Virtual Environments & Caches
+.venv
+.venv/
+.venv/**
+**/.venv
+**/.venv/**
+venv
+venv/
+venv/**
+**/venv
+**/venv/**
+**/__pycache__/
+**/__pycache__/**
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.benchmarks/
+
+# Next.js & Build Caches
+.next/
+**/.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.local
+
+# Database
+postgres_data/
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+.DS_Store
+.kiro/
+*.log
