@@ -3,7 +3,17 @@
  * Handles error handling, logging, retries, and type safety
  */
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  if (typeof window !== "undefined") {
+    return "";
+  }
+  return "http://localhost:3001";
+};
+
+const BASE_URL = getBaseUrl();
 const REQUEST_TIMEOUT = 30000; // 30 seconds
 const MAX_RETRIES = 1;
 
